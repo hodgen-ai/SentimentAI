@@ -1,0 +1,41 @@
+# Vibemaxxing Configuration
+
+audio:
+  sample_rate: 16000        # Hz (required for Whisper/Pyannote)
+  channels: 1               # Mono
+  buffer_duration: 60.0     # Seconds of audio to keep in ring buffer
+  device: null              # null = default device
+
+vad:
+  aggressiveness: 2         # 0-3, higher = more aggressive filtering
+  silence_threshold_ms: 1000  # Silence duration to trigger processing
+  frame_duration_ms: 30     # VAD frame size (10, 20, or 30)
+
+whisper:
+  model_size: base          # tiny, base, small, medium, large-v3
+  device: auto              # auto, cpu, cuda
+  language: null            # null = auto-detect
+
+diarization:
+  enabled: true
+  device: auto              # auto, cpu, cuda
+  # Note: Requires HUGGINGFACE_TOKEN environment variable
+
+sentiment:
+  use_transformer: true     # true = RoBERTa, false = keyword-based
+  device: auto
+
+persistence:
+  db_path: data/vibemaxxing.db
+  retention_days: 30        # Auto-cleanup after N days
+
+display:
+  mode: live                # live, minimal, none
+  max_lines: 15
+  show_speaker: true
+  show_emotion: true
+  update_interval: 0.3      # Seconds
+
+logging:
+  level: INFO
+  file: null                # null = stdout only

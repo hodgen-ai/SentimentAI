@@ -1,63 +1,48 @@
-# SentimentAI
+# Vibemaxxing
 
-## Product Vision
+**Optimize your vibes. Understand your environment. Level up your emotional awareness.**
 
-SentimentAI is an always-on ambient sentiment analysis system that helps you understand the emotional dynamics of your environment. By continuously listening to conversations around you, it provides insights into the positivity and negativity patterns in your daily interactions.
+Vibemaxxing is an always-on ambient sentiment analysis system that reveals the emotional dynamics of your daily conversations. It identifies speakers, tracks positivity patterns, and exposes insights like *"you're more negative after talking to Person X"*.
 
 ## Core Concept
 
-The app runs quietly in the background, analyzing:
-- **Real-time sentiment scoring** - Track the emotional tone of conversations as they happen
-- **Speaker identification** - Distinguish between different voices and track individual patterns
-- **Relationship insights** - Discover how different people and contexts affect your mood
-- **Temporal patterns** - Identify times of day, days of week, or situations that correlate with emotional states
+The app runs quietly in the background:
+- **Real-time vibe scoring** - Track emotional tone as conversations happen
+- **Speaker identification** - Distinguish voices and track individual patterns
+- **Relationship insights** - See how different people affect your mood
+- **Pattern detection** - Find what times, places, and people correlate with your best vibes
 
 ## Key Features
 
 ### Ambient Listening
-- Continuous audio monitoring with privacy-first design
-- Local processing - no data leaves your device
-- Automatic conversation detection and segmentation
+- Voice Activity Detection (VAD) triggers processing only when speech detected
+- Battery-efficient for always-on use
+- Local-only processing - nothing leaves your device
 
 ### Speaker Diarization
-- Identifies and tracks multiple speakers in a conversation
-- Builds anonymous speaker profiles over time
-- No facial recognition or personally identifiable data storage
+- Identifies and tracks multiple speakers
+- Persistent speaker profiles across sessions
+- Anonymous IDs (no names stored)
 
 ### Sentiment Analysis
-- Real-time positivity/negativity scoring (-1.0 to +1.0 scale)
+- Positivity/negativity scoring (-1.0 to +1.0)
 - Emotion classification (joy, sadness, anger, fear, surprise, neutral)
-- Confidence metrics for each analysis
+- Transformer-based accuracy (RoBERTa)
 
 ### Insight Generation
-- "You tend to be more negative after talking to Person X"
-- "Your positivity peaks on Tuesday mornings"
-- "Conversations in Location Y are 30% more positive than average"
-- "Your emotional baseline is trending upward this month"
-
-## Use Cases
-
-1. **Personal Development** - Identify toxic relationships or situations that drain your energy
-2. **Workplace Dynamics** - Understand team morale and meeting effectiveness
-3. **Mental Health Tracking** - Monitor emotional trends and correlate with life events
-4. **Social Research** - Analyze conversation patterns in different settings
+- "You tend to be more negative after talking to Speaker_3"
+- "Your positivity peaks around 10:00 AM"
+- "Your emotional baseline is trending upward this week"
 
 ## Technology Stack
 
-- **Speech Recognition**: OpenAI Whisper for transcription
-- **Speaker Diarization**: Pyannote.audio for speaker identification
-- **Sentiment Analysis**: Transformer-based models (DistilBERT, RoBERTa)
-- **Audio Processing**: Librosa, SoundDevice for real-time capture
-- **Data Storage**: Local SQLite database with encryption
-
-## Privacy & Ethics
-
-- All processing happens locally on your device
-- No cloud uploads or third-party data sharing
-- User-controlled retention policies
-- Anonymous speaker IDs (no names or identifying info)
-- Easy pause/delete functionality
-- Transparent about what data is collected and how it's used
+| Component | Technology |
+|-----------|------------|
+| Speech Recognition | faster-whisper (4x faster than original) |
+| Speaker Diarization | Pyannote.audio |
+| Sentiment Analysis | RoBERTa (cardiffnlp) |
+| Audio Capture | SoundDevice + WebRTC VAD |
+| Storage | Local SQLite |
 
 ## Getting Started
 
@@ -68,23 +53,43 @@ pip install -r requirements.txt
 # Run the demo simulation
 python demo.py
 
-# (Future) Start real-time monitoring
-python src/main.py --mode realtime
+# Start real-time monitoring
+python -m src.main start
+
+# View statistics
+python -m src.main stats
+
+# Generate insights
+python -m src.main insights
 ```
+
+## Requirements
+
+- Python 3.10+
+- Microphone access
+- ~2GB disk space for ML models
+- HuggingFace token (for pyannote speaker diarization)
+
+## Privacy First
+
+- **100% local** - All processing on your device
+- **No cloud** - No data uploaded anywhere
+- **You control retention** - Auto-cleanup after configurable days
+- **Anonymous speakers** - No names, just Speaker_1, Speaker_2, etc.
 
 ## Roadmap
 
-- [ ] Phase 1: Core sentiment analysis engine
-- [ ] Phase 2: Real-time audio capture and processing
-- [ ] Phase 3: Speaker diarization integration
-- [ ] Phase 4: Web dashboard for insights visualization
-- [ ] Phase 5: Mobile app companion
-- [ ] Phase 6: Advanced pattern recognition and predictions
+- [x] Core sentiment analysis engine
+- [ ] Real-time audio capture with VAD
+- [ ] Speaker diarization integration
+- [ ] CLI interface with live display
+- [ ] Pattern detection algorithms
+- [ ] Web dashboard (future)
 
 ## License
 
-MIT License - See LICENSE file for details
+MIT License
 
 ## Disclaimer
 
-This tool is designed for personal insight and self-improvement. Always obtain consent before recording conversations with others. Be mindful of privacy laws and regulations in your jurisdiction.
+This tool is for personal insight and self-improvement. Always obtain consent before recording others. Be mindful of privacy laws in your jurisdiction.

@@ -1,7 +1,7 @@
 # Core ML/AI Dependencies
 torch>=2.0.0
 transformers>=4.30.0
-openai-whisper>=20230314
+faster-whisper>=0.10.0
 pyannote.audio>=3.1.0
 
 # Sentiment Analysis Models

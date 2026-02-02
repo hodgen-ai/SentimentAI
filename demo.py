@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-SentimentAI Demo - Simulates a day of conversations with sentiment analysis.
+Vibemaxxing Demo - Simulates a day of conversations with sentiment analysis.
 
-This demo shows how the SentimentAI system would track conversations throughout
-a day, identifying speakers and analyzing sentiment patterns.
+This demo shows how Vibemaxxing tracks conversations throughout a day,
+identifying speakers and analyzing vibe patterns.
 """
 
 import sys
@@ -86,7 +86,7 @@ def simulate_day():
     """Simulate a full day of conversations with sentiment analysis."""
 
     print("=" * 80)
-    print("SentimentAI - Day Simulation Demo")
+    print("Vibemaxxing - Day Simulation Demo")
     print("=" * 80)
     print()
     print("Analyzing a day of conversations with sentiment tracking...")
@@ -257,7 +257,7 @@ def simulate_day():
             print("    - More consistent daily routines")
 
     print("\n" + "=" * 80)
-    print("Demo complete! This shows how SentimentAI tracks emotional patterns.")
+    print("Demo complete! This shows how Vibemaxxing tracks your vibe patterns.")
     print("=" * 80)
 
 
